@@ -44,9 +44,10 @@ def handler(datos_raw):
     elif gatillos_btn != last_join[1]:
         last_join[1] = gatillos_btn
 def elegir_tecla(ubicacion,data):
+    """selecciona la tecla elegida y la guarda en el espacio correspondiente"""
     tecla_elegida[ubicacion] = data
     print(f"***{tecla_elegida[ubicacion]}***")
-
+    
 
 
 def Listar_Dispositivo():
@@ -57,9 +58,5 @@ def Listar_Dispositivo():
     dispositivos = hid.HidDeviceFilter().get_devices()
     dispositivos[4].open()
     datos = dispositivos[4].set_raw_data_handler(handler)
-    input()#esto para que no se cierre
+    input()
     dispositivos[4].close()
-
-
-
-    

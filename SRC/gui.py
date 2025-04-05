@@ -2,7 +2,7 @@ import customtkinter as ctk
 from PIL import Image, ImageTk
 import os
 import threading
-from main import elegir_tecla, Listar_Dispositivo
+from main import elegir_tecla, Listar_Dispositivo, pyautogui
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
@@ -77,16 +77,24 @@ boton_f_ri.place(x=165, y=190)
 def abrir_config():
     ventana_config = ctk.CTkToplevel(app)
     ventana_config.title("Configuracion")
+    
     ventana_config.geometry("400x300")
     label = ctk.CTkLabel(ventana_config, text="Configuraciones", font=("Arial", 20))
     label.pack(pady=20)
+
     ctk.CTkSwitch(ventana_config, text="Modo oscuro").pack(pady=10)
     ctk.CTkButton(ventana_config, text="Guardar").pack(pady=10)
 
 boton_config = ctk.CTkButton(app, text="⚙️", width=40, command=abrir_config)
+
 boton_config.place(x=750, y=10)
 #hilo en segundo plano para poder seguir ejecutando el script
-thread = threading.Thread(target=Listar_Dispositivo)
+thread = threading.Thread(target=Listar_Dispositivo, daemon=True)
 thread.start()
+def al_cerrar():
+    app.destroy()
+    pyautogui.press('enter')
+    
 app.bind("<Key>", tecla_presionada)
+app.protocol("WM_DELETE_WINDOW", al_cerrar)
 app.mainloop()
