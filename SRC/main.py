@@ -30,7 +30,11 @@ def handler(datos_raw):
     elif boton_data != last_join[0]:
         last_join[0] = boton_data
         
-
+def elegir_tecla(data):
+    if data == "X":
+        eleccion = input()
+        tecla_elegida.append(eleccion)
+        print(eleccion)
 
 
 def Listar_Dispositivo():
