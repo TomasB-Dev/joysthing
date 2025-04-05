@@ -45,6 +45,23 @@ boton_X.place(x=565, y=185)
 boton_Y = ctk.CTkButton(app, text="△", command=lambda: iniciar_escucha_tecla(3), corner_radius=45, width=50, font=("", 25))
 boton_Y.place(x=620, y=150)
 
+boton_r1 = ctk.CTkButton(app, text="R1", command=lambda: iniciar_escucha_tecla(5), corner_radius=45, width=50, font=("", 25))
+boton_r1.place(x=620, y=100)
+
+boton_r2 = ctk.CTkButton(app, text="R2", command=lambda: iniciar_escucha_tecla(7), corner_radius=45, width=50, font=("", 25))
+boton_r2.place(x=620, y=50)
+
+boton_l1 = ctk.CTkButton(app, text="L1", command=lambda: iniciar_escucha_tecla(4), corner_radius=45, width=50, font=("", 25))
+boton_l1.place(x=120, y=100)
+
+boton_r2 = ctk.CTkButton(app, text="L2", command=lambda: iniciar_escucha_tecla(6), corner_radius=45, width=50, font=("", 25))
+boton_r2.place(x=120, y=50)
+
+boton_start = ctk.CTkButton(app, text="START", command=lambda: iniciar_escucha_tecla(8), corner_radius=45, width=40, font=("", 12))
+boton_start.place(x=520, y=120)
+
+boton_select = ctk.CTkButton(app, text="SELECT", command=lambda: iniciar_escucha_tecla(9), corner_radius=45, width=40, font=("", 12))
+boton_select.place(x=210, y=120)
 def abrir_config():
     ventana_config = ctk.CTkToplevel(app)
     ventana_config.title("Configuracion")
