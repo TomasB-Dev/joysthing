@@ -39,7 +39,7 @@ def handler(datos_raw):
     elif boton_data == 0 and last_join[0] != 0: # up
             last_join[0] = 0
             pyautogui.press(f'{tecla_elegida[10]}')
-    elif boton_data == 2 and last_join[0] != 2: # up
+    elif boton_data == 2 and last_join[0] != 2: # derecha
             last_join[0] = 2
             pyautogui.press(f'{tecla_elegida[11]}')
     #reasigna el estado de lastjoin
@@ -47,16 +47,16 @@ def handler(datos_raw):
         last_join[0] = boton_data
     #GATILLOS
 
-    if gatillos_btn == 1 and last_join[1] != 1:
+    if gatillos_btn == 1 and last_join[1] != 1:#l1
         last_join[1] = 1
         pyautogui.press(f'{tecla_elegida[4]}')
-    if gatillos_btn == 2 and last_join[1] != 2:
+    if gatillos_btn == 2 and last_join[1] != 2:#r1
         last_join[1] = 2
         pyautogui.press(f'{tecla_elegida[5]}')
-    if gatillos_btn == 4 and last_join[1] != 4:
+    if gatillos_btn == 4 and last_join[1] != 4:#l2
         last_join[1] = 4
         pyautogui.press(f'{tecla_elegida[6]}')
-    if gatillos_btn == 8 and last_join[1] != 8:
+    if gatillos_btn == 8 and last_join[1] != 8:#r2
         last_join[1] = 8
         pyautogui.press(f'{tecla_elegida[7]}')
     elif gatillos_btn != last_join[1]:
