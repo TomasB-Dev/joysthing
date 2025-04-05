@@ -1,7 +1,11 @@
 from pywinusb import hid
 import pyautogui
 last_join = [None]
-teclas=[ 79 , 47,143,31]
+teclas=[ 79 , # X
+        47, # CIRCULO
+        143, # CUADRADO
+        31, # TRIANGULO
+        ]
 tecla_elegida = []
 def handler(datos_raw):
     """
@@ -33,6 +37,7 @@ def Listar_Dispositivo():
     """
     lista los dispositivos y printea nombre y id del producto
     """
+    #falta agregar la opcion de seleccionar, lo hare cuando tenga ui?
     dispositivos = hid.HidDeviceFilter().get_devices()
     dispositivos[4].open()
     datos = dispositivos[4].set_raw_data_handler(handler)
