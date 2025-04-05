@@ -1,17 +1,21 @@
 from pywinusb import hid
 import pyautogui
+last_join = [None]
 def handler(datos_raw):
     """
-    mostrar info array de botones, place 6 contiene los btns del cuadrado, ciruclo, triangulo y x
+    mostrar info array de botones, place 6 contiene los btns del cuadrado, ciruclo, triangulo y xxxxxxxxxx
     """
-    print("Raw data:", datos_raw)
+    
+    if datos_raw[6] > 15 and datos_raw[3] < 115 or datos_raw[3] > 130 : #esto para controlar el spam de mi joystick no necesario
+        print("Raw data:", datos_raw)
     boton_data = datos_raw[6]
-    if boton_data == 79:
+    if boton_data == 79 and last_join[0] != 79:
+        last_join[0] = 79
         pyautogui.press('x')
-    for i in range(8):  # teoricamente hay 8 botones
-        
-        if boton_data & (1 << i):
-            print(f"boton {i + 1} presionado")
+    #reasigna el estado de lastjoin
+    elif boton_data != last_join[0]:
+        last_join[0] = boton_data
+
 
 
 def Listar_Dispositivo():
@@ -19,26 +23,10 @@ def Listar_Dispositivo():
     lista los dispositivos y printea nombre y id del producto
     """
     dispositivos = hid.HidDeviceFilter().get_devices()
-
-    for dispositivo in dispositivos:
-        if hex(dispositivo.product_id) == "0x6":
-            try:
-                dispositivo.open()
-                print("*************************************")
-                print(f"Nombre {dispositivo.product_name}")
-                print(f"Id Producto: {hex(dispositivo.product_id)}")
-                dispositivo.set_raw_data_handler(handler)
-                
-                input("Finalizar..")
-                print("************************************")
-                print(dispositivo.find_input_reports())
-                dispositivo.close() 
-            except Exception as e:
-                print(f"{e}")
-                
-            
-        else:
-            print("no se encontro")
+    dispositivos[4].open()
+    datos = dispositivos[4].set_raw_data_handler(handler)
+    input()#esto para que no se cierre
+    dispositivos[4].close()
 
         
 Listar_Dispositivo()
