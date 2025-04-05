@@ -29,10 +29,10 @@ def handler(datos_raw):
         pyautogui.press(f'{tecla_elegida[0]}')
     elif boton_data == 47 and last_join[0] != 47: # circulo
         last_join[0] = 47
-        pyautogui.press(f'{tecla_elegida[2]}')
+        pyautogui.press(f'{tecla_elegida[1]}')
     elif boton_data == 143 and last_join[0] != 143: # cuadrado
         last_join[0] = 143
-        pyautogui.press(f'{tecla_elegida[1]}')
+        pyautogui.press(f'{tecla_elegida[2]}')
     elif boton_data == 31 and last_join[0] != 31: # triangulo
             last_join[0] = 31
             pyautogui.press(f'{tecla_elegida[3]}')
