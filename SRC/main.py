@@ -6,7 +6,7 @@ teclas=[ 79 , # X
         143, # CUADRADO
         31, # TRIANGULO
         ]
-tecla_elegida = []
+tecla_elegida = [""] * 4 #momentaneo
 def handler(datos_raw):
     """
     mostrar info array de botones, place 6 contiene los btns del cuadrado, ciruclo, triangulo y x
@@ -30,11 +30,10 @@ def handler(datos_raw):
     elif boton_data != last_join[0]:
         last_join[0] = boton_data
         
-def elegir_tecla(data):
-    if data == "X":
-        eleccion = input()
-        tecla_elegida.append(eleccion)
-        print(eleccion)
+def elegir_tecla(ubicacion,data):
+    tecla_elegida[ubicacion] = data
+    print(f"***{tecla_elegida[ubicacion]}***")
+
 
 
 def Listar_Dispositivo():
@@ -48,15 +47,6 @@ def Listar_Dispositivo():
     input()#esto para que no se cierre
     dispositivos[4].close()
 
-for tecla in teclas:
-    check = True
-    while check:
-        print(f"Coloque la tecla {tecla}")
-        eleccion = input()
-        if len(eleccion) > 1:
-            check = True
-        else:
-            tecla_elegida.append(eleccion)
-            check = False
-Listar_Dispositivo()
+
+
     
