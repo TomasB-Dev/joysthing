@@ -66,18 +66,18 @@ boton_select.place(x=210, y=120)
 boton_f_up = ctk.CTkButton(app, text="▲", command=lambda: iniciar_escucha_tecla(10), corner_radius=45, width=40, font=("", 12))
 boton_f_up.place(x=125, y=160)
 
-boton_f_down = ctk.CTkButton(app, text="▼", command=lambda: iniciar_escucha_tecla(11), corner_radius=45, width=40, font=("", 12))
+boton_f_down = ctk.CTkButton(app, text="▼", command=lambda: iniciar_escucha_tecla(13), corner_radius=45, width=40, font=("", 12))
 boton_f_down.place(x=125, y=220)
 
 boton_f_left = ctk.CTkButton(app, text="❰", command=lambda: iniciar_escucha_tecla(12), corner_radius=45, width=40, font=("", 12))
 boton_f_left.place(x=90, y=190)
 
-boton_f_ri = ctk.CTkButton(app, text="❱", command=lambda: iniciar_escucha_tecla(13), corner_radius=45, width=40, font=("", 12))
+boton_f_ri = ctk.CTkButton(app, text="❱", command=lambda: iniciar_escucha_tecla(11), corner_radius=45, width=40, font=("", 12))
 boton_f_ri.place(x=165, y=190)
 def abrir_config():
     ventana_config = ctk.CTkToplevel(app)
     ventana_config.title("Configuracion")
-    
+
     ventana_config.geometry("400x300")
     label = ctk.CTkLabel(ventana_config, text="Configuraciones", font=("Arial", 20))
     label.pack(pady=20)

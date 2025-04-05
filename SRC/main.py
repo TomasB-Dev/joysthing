@@ -11,8 +11,10 @@ teclas=[ 79 , # X
         8, #r2
         32,#START
         16,#SELECT
+        0, #up
+        11, #derecha
         ]
-tecla_elegida = [""] * 8 #momentaneo
+tecla_elegida = [""] * 20 #momentaneo
 def handler(datos_raw):
     """
     mostrar info array de botones, place 6 contiene los btns del cuadrado, ciruclo, triangulo y x
@@ -34,20 +36,36 @@ def handler(datos_raw):
     elif boton_data == 31 and last_join[0] != 31: # triangulo
             last_join[0] = 31
             pyautogui.press(f'{tecla_elegida[3]}')
+    elif boton_data == 0 and last_join[0] != 0: # up
+            last_join[0] = 0
+            pyautogui.press(f'{tecla_elegida[10]}')
+    elif boton_data == 2 and last_join[0] != 2: # up
+            last_join[0] = 2
+            pyautogui.press(f'{tecla_elegida[11]}')
     #reasigna el estado de lastjoin
     elif boton_data != last_join[0]:
         last_join[0] = boton_data
     #GATILLOS
+
     if gatillos_btn == 1 and last_join[1] != 1:
         last_join[1] = 1
         pyautogui.press(f'{tecla_elegida[4]}')
+    if gatillos_btn == 2 and last_join[1] != 2:
+        last_join[1] = 2
+        pyautogui.press(f'{tecla_elegida[5]}')
+    if gatillos_btn == 4 and last_join[1] != 4:
+        last_join[1] = 4
+        pyautogui.press(f'{tecla_elegida[6]}')
+    if gatillos_btn == 8 and last_join[1] != 8:
+        last_join[1] = 8
+        pyautogui.press(f'{tecla_elegida[7]}')
     elif gatillos_btn != last_join[1]:
         last_join[1] = gatillos_btn
 def elegir_tecla(ubicacion,data):
     """selecciona la tecla elegida y la guarda en el espacio correspondiente"""
     tecla_elegida[ubicacion] = data
     print(f"***{tecla_elegida[ubicacion]}***")
-    
+
 
 
 def Listar_Dispositivo():
