@@ -36,6 +36,7 @@ def handler(datos_raw):
     elif boton_data == 31 and last_join[0] != 31: # triangulo
             last_join[0] = 31
             pyautogui.press(f'{tecla_elegida[3]}')
+    #FLECHAS (estan en la misma freq que los principales)
     elif boton_data == 0 and last_join[0] != 0: # up
             last_join[0] = 0
             pyautogui.press(f'{tecla_elegida[10]}')
