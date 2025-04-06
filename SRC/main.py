@@ -27,6 +27,7 @@ def handler(datos_raw):
         print("Raw data:", datos_raw)
     boton_data = datos_raw[6]
     gatillos_btn = datos_raw[7]
+    #buscar / pensar una manera mas eficiente de hacer esto
     # btn principales xov
     if boton_data == 79 and last_join[0] != 79: # la x
         last_join[0] = 79
