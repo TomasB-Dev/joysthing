@@ -1,6 +1,6 @@
 from pywinusb import hid
 import pyautogui
-last_join = [""] * 2
+last_join = [""] * 2 #funciona en base a los campos 6 es el primero, gatillos 2do
 teclas=[ 79 , # X
         47, # CIRCULO
         143, # CUADRADO
@@ -11,8 +11,12 @@ teclas=[ 79 , # X
         8, #r2
         32,#START
         16,#SELECT
+        #flechas 
         0, #up
         11, #derecha
+        6,# left
+        4, #down
+        #end flechas
         ]
 tecla_elegida = [""] * 20 #momentaneo
 def handler(datos_raw):
@@ -43,6 +47,12 @@ def handler(datos_raw):
     elif boton_data == 2 and last_join[0] != 2: # derecha
             last_join[0] = 2
             pyautogui.press(f'{tecla_elegida[11]}')
+    elif boton_data == 6 and last_join[0] != 6: # left
+            last_join[0] = 6
+            pyautogui.press(f'{tecla_elegida[12]}')
+    elif boton_data == 4 and last_join[0] != 4: # down
+            last_join[0] = 4
+            pyautogui.press(f'{tecla_elegida[13]}')
     #reasigna el estado de lastjoin
     elif boton_data != last_join[0]:
         last_join[0] = boton_data
