@@ -1,6 +1,8 @@
 # joysthing
 It is a program that simulates that you are using your keyboard, but in reality you are using your joystick.
-![Logo del proyecto](assets/img/logo.png)
+
+<img src="assets/img/logo.png" alt="Logo" width="150" height="150">
+
 
 *`For my future self, the name is due to the mispronunciation of this word in Spanish "josting".`*
 
