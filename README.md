@@ -1,7 +1,7 @@
 # joysthing
 It is a program that simulates that you are using your keyboard, but in reality you are using your joystick.
 
-*For my future self, the name is due to the mispronunciation of this word in Spanish "josting".*
+*`For my future self, the name is due to the mispronunciation of this word in Spanish "josting".`*
 
 ## Progress list
 - [X] Add buttons that bind to keys.
@@ -10,3 +10,5 @@ It is a program that simulates that you are using your keyboard, but in reality 
 - [ ] More than one device.
 - [ ] Link and configure analogues.
 - [ ] Hold down the button (or key).
+
+### additional information
