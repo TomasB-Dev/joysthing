@@ -15,5 +15,5 @@ It is a program that simulates that you are using your keyboard, but in reality 
 - [ ] Hold down the button (or key).
 
 ### additional information
-The joystick image was created with AI.
+The joystick image was created with AI.  
 Logo created by Sofia.G
