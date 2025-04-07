@@ -27,8 +27,6 @@ def tecla_presionada(event):
         elegir_tecla(tecla_actual, event.keysym)
         print("entre")
 
-
-
 background_image = Image.open(image_path)
 background_image = background_image.resize((800, 600))
 bg_image = ImageTk.PhotoImage(background_image)

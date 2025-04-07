@@ -14,7 +14,8 @@ It is a program that simulates that you are using your keyboard, but in reality 
 - [ ] More than one device.
 - [ ] Link and configure analogues.
 - [ ] Hold down the button (or key).
-
+## How to use it
+<img src="assets/img/logo.png" alt="Logo" width="200" height="200">
 ### additional information
 The joystick image was created with AI.  
 Logo created by Sofia G.
