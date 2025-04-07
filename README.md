@@ -15,7 +15,7 @@ It is a program that simulates that you are using your keyboard, but in reality 
 - [ ] Link and configure analogues.
 - [ ] Hold down the button (or key).
 ## How to use it
-<img src="assets/img/interfaz-started.png" alt="Logo" width="500" height="300">
+<img src="assets/img/interfaz-started.png" alt="Logo" width="500" height="400">
 
 ## additional information
 The joystick image was created with AI.  
