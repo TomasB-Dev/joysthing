@@ -27,6 +27,9 @@ __Instructions to assign a key to a button:__
 
 + After selecting the button, press the key you want to link.
 
+> [!WARNING]  
+> The application is under development so this may be wrong.
+
 
 
 ## additional information
