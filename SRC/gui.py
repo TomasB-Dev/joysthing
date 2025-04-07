@@ -2,7 +2,7 @@ import customtkinter as ctk
 from PIL import Image, ImageTk
 import os
 import threading
-from main import elegir_tecla, Listar_Dispositivo, pyautogui
+from main import elegir_tecla, Listar_Dispositivo, pyautogui,seleccionar_dispositivos
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
@@ -81,10 +81,16 @@ def abrir_config():
     ventana_config = ctk.CTkToplevel(app)   
     ventana_config.title("Configuracion")
     ventana_config.geometry("400x300")
+
     label = ctk.CTkLabel(ventana_config, text="Configuraciones", font=("Arial", 20))
     label.pack(pady=20)
 
-    ctk.CTkSwitch(ventana_config, text="Modo oscuro").pack(pady=10)
+    ctk.CTkSwitch(ventana_config, text="Modo oscuro").pack(pady=10)  
+    dispositivos = seleccionar_dispositivos()
+    label_dipositivo = ctk.CTkLabel(ventana_config, text="Dispositivo", font=("Arial", 20))
+    label_dipositivo.pack(pady=10)
+    seleccionar = ctk.CTkOptionMenu(ventana_config, values=dispositivos, )
+    seleccionar.pack(pady=10)
     ctk.CTkButton(ventana_config, text="Guardar").pack(pady=10)
 
 boton_config = ctk.CTkButton(app, text="⚙️", width=40, command=abrir_config)

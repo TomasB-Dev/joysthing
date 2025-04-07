@@ -90,3 +90,11 @@ def Listar_Dispositivo():
     datos = dispositivos[4].set_raw_data_handler(handler)
     input()
     dispositivos[4].close()
+
+def seleccionar_dispositivos():
+    dispositivos = hid.HidDeviceFilter().get_devices()
+    nombres_dispositivos = [""]
+    for dispositivo in dispositivos:
+        nombres_dispositivos.append(dispositivo.product_name)
+    return nombres_dispositivos
+    
