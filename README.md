@@ -16,7 +16,17 @@ It is a program that simulates that you are using your keyboard, but in reality 
 - [ ] Hold down the button (or key).
 ## How to use it
 <img src="assets/img/interfaz-started.png" alt="Logo" width="500" height="400">
-At the moment it only works by selecting your device by placing it manually in the code, once your device is placed, select with your mouse the button you want to assign the key to, once selected, press the key to link.
+** Instructions to assign a key to a button: **
+
++ Open the code and manually set your device.
+
++ Once your device is set in the code, run the application.
+
++ Use your mouse to select the button you want to assign a key to.
+
++ After selecting the button, press the key you want to link.
+
+
 
 ## additional information
 The joystick image was created with AI.  
