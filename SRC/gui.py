@@ -81,7 +81,11 @@ def abrir_config():
     ventana_config = ctk.CTkToplevel(app)   
     ventana_config.title("Configuracion")
     ventana_config.geometry("400x300")
-
+    #focus ventana
+    ventana_config.lift()
+    ventana_config.focus_force()
+    ventana_config.attributes("-topmost", True)
+    #end focus
     label = ctk.CTkLabel(ventana_config, text="Configuraciones", font=("Arial", 20))
     label.pack(pady=20)
 

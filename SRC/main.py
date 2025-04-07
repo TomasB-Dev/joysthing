@@ -95,6 +95,7 @@ def seleccionar_dispositivos():
     dispositivos = hid.HidDeviceFilter().get_devices()
     nombres_dispositivos = [""]
     for dispositivo in dispositivos:
-        nombres_dispositivos.append(dispositivo.product_name)
+        if dispositivo.product_name != "USB DEVICE":
+            nombres_dispositivos.append(dispositivo.product_name)
     return nombres_dispositivos
     
