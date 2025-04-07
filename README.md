@@ -16,3 +16,4 @@ It is a program that simulates that you are using your keyboard, but in reality 
 
 ### additional information
 The joystick image was created with AI.
+Logo created by Sofia.G
