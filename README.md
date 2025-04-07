@@ -16,7 +16,8 @@ It is a program that simulates that you are using your keyboard, but in reality 
 - [ ] Hold down the button (or key).
 ## How to use it
 <img src="assets/img/interfaz-started.png" alt="Logo" width="500" height="400">
-**Instructions to assign a key to a button:**
+
+__Instructions to assign a key to a button:__
 
 + Open the code and manually set your device.
 
