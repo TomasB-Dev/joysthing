@@ -1,7 +1,6 @@
 import customtkinter as ctk
 from PIL import Image, ImageTk
 import os
-import threading
 from tkinter import messagebox
 from main import elegir_tecla, Listar_Dispositivo, pyautogui,seleccionar_dispositivos ,modify_dispo, seleccionado
 
