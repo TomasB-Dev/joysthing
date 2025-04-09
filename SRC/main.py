@@ -84,9 +84,9 @@ def elegir_tecla(ubicacion,data):
 
 def Listar_Dispositivo():
     """
-    lista los dispositivos y printea nombre y id del producto
+    funcion principal, se encarga de mantener abierto el dispositivo
     """
-    #falta agregar la opcion de seleccionar, lo hare cuando tenga ui?
+    
     dispositivos = hid.HidDeviceFilter().get_devices()
     for dispositivo in dispositivos:
         if dispositivo.product_name == Dispositivo_selected:
@@ -99,6 +99,9 @@ def Listar_Dispositivo():
     
 
 def seleccionar_dispositivos():
+    """
+    Devuelve los nombres de los dispositivos para listarlos en la seleccion
+    """
     dispositivos = hid.HidDeviceFilter().get_devices()
     nombres_dispositivos = [""]
     for dispositivo in dispositivos:
@@ -107,6 +110,9 @@ def seleccionar_dispositivos():
     return nombres_dispositivos
 
 def modify_dispo(selected):
+    """
+    Modifica el dispositivo seleccionado
+    """
     global Dispositivo_selected
     Dispositivo_selected = selected
     thread = threading.Thread(target=Listar_Dispositivo, daemon=True)
