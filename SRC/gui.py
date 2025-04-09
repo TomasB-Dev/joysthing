@@ -102,7 +102,7 @@ def abrir_config():
 boton_config = ctk.CTkButton(app, text="⚙️", width=40, command=abrir_config)
 
 boton_config.place(x=750, y=10)
-#hilo en segundo plano para poder seguir ejecutando el script
+
 
 def al_cerrar():
     app.destroy()
