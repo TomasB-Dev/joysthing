@@ -2,12 +2,13 @@ import customtkinter as ctk
 from PIL import Image, ImageTk
 import os
 import threading
-from main import elegir_tecla, Listar_Dispositivo, pyautogui,seleccionar_dispositivos
+from main import elegir_tecla, Listar_Dispositivo, pyautogui,seleccionar_dispositivos ,modify_dispo
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 base_path = os.path.dirname(os.path.abspath(__file__))
-image_path = os.path.join(base_path, "..", "assets", "img", "joystick.png")
+image_path = os.path.join(base_path, "..", "assets", "img"
+, "joystick.png")
 logo_path = os.path.join(base_path,"..", "assets", "img", "logo.ico")
 
 app = ctk.CTk()
@@ -76,6 +77,9 @@ boton_f_left.place(x=90, y=190)
 boton_f_ri = ctk.CTkButton(app, text="❱", command=lambda: iniciar_escucha_tecla(11), corner_radius=45, width=40, font=("", 12))
 boton_f_ri.place(x=165, y=190)
 def abrir_config():
+    """
+    Ventana de configuracion
+    """
     ventana_config = ctk.CTkToplevel(app)   
     ventana_config.title("Configuracion")
     ventana_config.geometry("400x300")
@@ -88,19 +92,18 @@ def abrir_config():
     label.pack(pady=20)
 
     ctk.CTkSwitch(ventana_config, text="Modo oscuro").pack(pady=10)  
-    dispositivos = seleccionar_dispositivos()
+    dispositivos = seleccionar_dispositivos() #obtener nombre de los dispositivos
     label_dipositivo = ctk.CTkLabel(ventana_config, text="Dispositivo", font=("Arial", 20))
     label_dipositivo.pack(pady=10)
     seleccionar = ctk.CTkOptionMenu(ventana_config, values=dispositivos, )
     seleccionar.pack(pady=10)
-    ctk.CTkButton(ventana_config, text="Guardar").pack(pady=10)
+    ctk.CTkButton(ventana_config, text="Guardar" ,command=lambda: modify_dispo(seleccionar.get())).pack(pady=10,)
 
 boton_config = ctk.CTkButton(app, text="⚙️", width=40, command=abrir_config)
 
 boton_config.place(x=750, y=10)
 #hilo en segundo plano para poder seguir ejecutando el script
-thread = threading.Thread(target=Listar_Dispositivo, daemon=True)
-thread.start()
+
 def al_cerrar():
     app.destroy()
     pyautogui.press('enter')

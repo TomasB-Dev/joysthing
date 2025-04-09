@@ -1,5 +1,6 @@
 from pywinusb import hid
 import pyautogui
+import threading
 last_join = [""] * 2 #funciona en base a los campos 6 es el primero, gatillos 2do
 teclas=[ 79 , # X
         47, # CIRCULO
@@ -19,6 +20,7 @@ teclas=[ 79 , # X
         #end flechas
         ]
 tecla_elegida = [""] * 20 #momentaneo
+Dispositivo_selected = None
 def handler(datos_raw):
     """
     mostrar info array de botones, place 6 contiene los btns del cuadrado, ciruclo, triangulo y x
@@ -86,10 +88,15 @@ def Listar_Dispositivo():
     """
     #falta agregar la opcion de seleccionar, lo hare cuando tenga ui?
     dispositivos = hid.HidDeviceFilter().get_devices()
-    dispositivos[4].open()
-    datos = dispositivos[4].set_raw_data_handler(handler)
-    input()
-    dispositivos[4].close()
+    for dispositivo in dispositivos:
+        if dispositivo.product_name == Dispositivo_selected:
+            dispositivo.open()
+            dispositivo.set_raw_data_handler(handler)
+            input()
+            dispositivo.close()
+
+    
+    
 
 def seleccionar_dispositivos():
     dispositivos = hid.HidDeviceFilter().get_devices()
@@ -98,4 +105,11 @@ def seleccionar_dispositivos():
         if dispositivo.product_name != "USB DEVICE":
             nombres_dispositivos.append(dispositivo.product_name)
     return nombres_dispositivos
-    
+
+def modify_dispo(selected):
+    global Dispositivo_selected
+    Dispositivo_selected = selected
+    thread = threading.Thread(target=Listar_Dispositivo, daemon=True)
+    thread.start()
+    print(Dispositivo_selected)
+#crear una funcion que modifique una variable global y este selecciona el dispositivo
