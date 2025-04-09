@@ -2,7 +2,8 @@ import customtkinter as ctk
 from PIL import Image, ImageTk
 import os
 import threading
-from main import elegir_tecla, Listar_Dispositivo, pyautogui,seleccionar_dispositivos ,modify_dispo
+from tkinter import messagebox
+from main import elegir_tecla, Listar_Dispositivo, pyautogui,seleccionar_dispositivos ,modify_dispo, seleccionado
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
@@ -19,9 +20,13 @@ app.geometry("800x600")
 tecla_actual = None
 
 def iniciar_escucha_tecla(ubicacion):
-    global tecla_actual
-    tecla_actual = ubicacion
-    app.focus_set()
+    Dispositivo_selected = seleccionado()
+    if Dispositivo_selected == None:
+        messagebox.showerror("Error","Debes seleccionar el dispositvo en configuracion.\nSi el error continua comuníquese con el soporte")
+    else:
+        global tecla_actual
+        tecla_actual = ubicacion
+        app.focus_set()
 
 def tecla_presionada(event):
     if tecla_actual is not None:

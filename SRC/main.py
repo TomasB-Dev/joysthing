@@ -118,3 +118,7 @@ def modify_dispo(selected):
     thread = threading.Thread(target=Listar_Dispositivo, daemon=True)
     thread.start()
     print(Dispositivo_selected)
+
+def seleccionado():
+    "devuelve si hay dispositivo seleccionado"
+    return Dispositivo_selected
