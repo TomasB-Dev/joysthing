@@ -21,8 +21,6 @@ __Instructions to assign a key to a button:__
 
 + Select your device in settings.
 
-+ Once your device is set in the code, run the application.
-
 + Use your mouse to select the button you want to assign a key to.
 
 + After selecting the button, press the key you want to link.
