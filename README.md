@@ -10,7 +10,7 @@ It is a program that simulates that you are using your keyboard, but in reality 
 - [X] Add buttons that bind to keys.
 - [X] Configurable keys.
 - [ ] Save Configuration.
-- [ ] Select device.
+- [X] Select device.
 - [ ] More than one device.
 - [ ] Link and configure analogues.
 - [ ] Hold down the button (or key).
