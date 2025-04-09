@@ -19,7 +19,7 @@ It is a program that simulates that you are using your keyboard, but in reality 
 
 __Instructions to assign a key to a button:__
 
-+ Open the code and manually set your device.
++ Select your device in settings.
 
 + Once your device is set in the code, run the application.
 

@@ -112,4 +112,3 @@ def modify_dispo(selected):
     thread = threading.Thread(target=Listar_Dispositivo, daemon=True)
     thread.start()
     print(Dispositivo_selected)
-#crear una funcion que modifique una variable global y este selecciona el dispositivo
