@@ -36,7 +36,6 @@ def cargar_configuracion():
         with open("config.json", "r") as archivo:
             config = json.load(archivo)
             tecla_elegida = config.get("teclas", [""] * 20)          
-        print("configuracion cargada")
     except FileNotFoundError:
         print("no se encontro un archivo de configuracion.")
 
@@ -46,7 +45,7 @@ def handler(datos_raw):
     mostrar info array de botones, place 6 contiene los btns del cuadrado, ciruclo, triangulo y x
     """
     if datos_raw[6] > 15 and datos_raw[3] < 115 or datos_raw[3] > 130 : #esto para controlar el spam de mi joystick no necesario
-        print("Raw data:", datos_raw)
+        print("Raw data:", datos_raw) # para ver que pocion tiene
     boton_data = datos_raw[6]
     gatillos_btn = datos_raw[7]
     #buscar / pensar una manera mas eficiente de hacer esto
@@ -98,7 +97,6 @@ def handler(datos_raw):
 def elegir_tecla(ubicacion,data):
     """selecciona la tecla elegida y la guarda en el espacio correspondiente"""
     tecla_elegida[ubicacion] = data
-    print(f"***{tecla_elegida[ubicacion]}***")
     guardar_configuracion()
 
 
@@ -126,7 +124,7 @@ def seleccionar_dispositivos():
     dispositivos = hid.HidDeviceFilter().get_devices()
     nombres_dispositivos = [""]
     for dispositivo in dispositivos:
-        if dispositivo.product_name != "USB DEVICE":
+        if dispositivo.product_name != "USB DEVICE": #ajenos a ser joyctiks
             nombres_dispositivos.append(dispositivo.product_name)
     return nombres_dispositivos
 
@@ -138,8 +136,7 @@ def modify_dispo(selected):
     Dispositivo_selected = selected
     guardar_configuracion()
     thread = threading.Thread(target=Listar_Dispositivo, daemon=True)
-    thread.start()
-    print(Dispositivo_selected)
+    thread.start()    
 
 def seleccionado():
     "devuelve si hay dispositivo seleccionado"

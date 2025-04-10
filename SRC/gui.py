@@ -30,7 +30,6 @@ def iniciar_escucha_tecla(ubicacion):
 def tecla_presionada(event):
     if tecla_actual is not None:
         elegir_tecla(tecla_actual, event.keysym)
-        print("entre")
 
 background_image = Image.open(image_path)
 background_image = background_image.resize((800, 600))
