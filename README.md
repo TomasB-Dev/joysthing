@@ -29,7 +29,6 @@ __Instructions to assign a key to a button:__
 > The application is under development so this may be wrong.
 
 
-
 ## additional information
 The joystick image was created with AI.  
 Logo created by Sofia G.
