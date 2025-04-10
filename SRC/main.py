@@ -1,6 +1,7 @@
 from pywinusb import hid
 import pyautogui
 import threading
+import json
 last_join = [""] * 2 #funciona en base a los campos 6 es el primero, gatillos 2do
 teclas=[ 79 , # X
         47, # CIRCULO
@@ -21,6 +22,29 @@ teclas=[ 79 , # X
         ]
 tecla_elegida = [""] * 20 #momentaneo
 Dispositivo_selected = None
+#cargar/guardar info
+def guardar_configuracion():
+    config = {
+        "teclas": tecla_elegida,
+        "dispositivo": Dispositivo_selected
+    }
+    with open("config.json", "w") as archivo:
+        json.dump(config, archivo)
+    print("configuracion guardada")
+def cargar_configuracion():
+    global tecla_elegida, Dispositivo_selected
+    try:
+        with open("config.json", "r") as archivo:
+            config = json.load(archivo)
+            tecla_elegida = config.get("teclas", [""] * 20)
+            global Dispositivo_selected
+            Dispositivo_selected = config.get("dispositivo", None)
+            print(Dispositivo_selected)
+        print("configuracion cargada")
+    except FileNotFoundError:
+        print("no se encontro un archivo de configuracion.")
+
+
 def handler(datos_raw):
     """
     mostrar info array de botones, place 6 contiene los btns del cuadrado, ciruclo, triangulo y x
@@ -79,6 +103,7 @@ def elegir_tecla(ubicacion,data):
     """selecciona la tecla elegida y la guarda en el espacio correspondiente"""
     tecla_elegida[ubicacion] = data
     print(f"***{tecla_elegida[ubicacion]}***")
+    guardar_configuracion()
 
 
 
@@ -115,6 +140,7 @@ def modify_dispo(selected):
     """
     global Dispositivo_selected
     Dispositivo_selected = selected
+    guardar_configuracion()
     thread = threading.Thread(target=Listar_Dispositivo, daemon=True)
     thread.start()
     print(Dispositivo_selected)

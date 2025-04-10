@@ -2,7 +2,7 @@ import customtkinter as ctk
 from PIL import Image, ImageTk
 import os
 from tkinter import messagebox
-from main import elegir_tecla, Listar_Dispositivo, pyautogui,seleccionar_dispositivos ,modify_dispo, seleccionado
+from main import elegir_tecla, Listar_Dispositivo, pyautogui,seleccionar_dispositivos ,modify_dispo, seleccionado,cargar_configuracion
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
@@ -114,4 +114,5 @@ def al_cerrar():
     
 app.bind("<Key>", tecla_presionada)
 app.protocol("WM_DELETE_WINDOW", al_cerrar)
+cargar_configuracion()
 app.mainloop()
