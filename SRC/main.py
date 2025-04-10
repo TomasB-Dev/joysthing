@@ -26,7 +26,6 @@ Dispositivo_selected = None
 def guardar_configuracion():
     config = {
         "teclas": tecla_elegida,
-        "dispositivo": Dispositivo_selected
     }
     with open("config.json", "w") as archivo:
         json.dump(config, archivo)
@@ -36,10 +35,7 @@ def cargar_configuracion():
     try:
         with open("config.json", "r") as archivo:
             config = json.load(archivo)
-            tecla_elegida = config.get("teclas", [""] * 20)
-            global Dispositivo_selected
-            Dispositivo_selected = config.get("dispositivo", None)
-            print(Dispositivo_selected)
+            tecla_elegida = config.get("teclas", [""] * 20)          
         print("configuracion cargada")
     except FileNotFoundError:
         print("no se encontro un archivo de configuracion.")
