@@ -119,7 +119,7 @@ def Listar_Dispositivo():
 
 def seleccionar_dispositivos():
     """
-    Devuelve los nombres de los dispositivos para listarlos en la seleccion
+    devuelve los nombres de los dispositivos para listarlos en la seleccion
     """
     dispositivos = hid.HidDeviceFilter().get_devices()
     nombres_dispositivos = [""]
