@@ -20,7 +20,9 @@ teclas=[ 79 , # X
         4, #down
         #end flechas
         #analog iz
-        0,#up
+        0,#up izq
+        0, #left izq
+        255, #rigth izq
         ]
 tecla_elegida = [""] * 20 #momentaneo
 Dispositivo_selected = None
@@ -99,12 +101,21 @@ def handler(datos_raw):
     elif gatillos_btn != last_join[1]:
         last_join[1] = gatillos_btn
     #gatillos
-    if datos_raw[3] == 0 and last_join[2] != 0:
+    if datos_raw[2] == 0 and last_join[2] != 0:
         last_join[2] = 0
         pyautogui.press(f"{tecla_elegida[14]}")
         print("funciono")
-    elif datos_raw[3] != last_join[2]:
-        last_join[2] =  datos_raw[3]
+    elif datos_raw[1] == 0 and last_join[2] !=0:
+        last_join[2] = 0
+        pyautogui.press(f"{tecla_elegida[15]}")
+    elif datos_raw[1] == 255 and last_join[2] !=255:
+        last_join[2] = 255
+        pyautogui.press(f"{tecla_elegida[16]}")
+    elif datos_raw[2] == 255 and last_join[2] !=255:
+        last_join[2] = 255
+        pyautogui.press(f"{tecla_elegida[17]}")
+    elif datos_raw[2] != last_join[2]:
+        last_join[2] =  datos_raw[2]
 def elegir_tecla(ubicacion,data):
     """selecciona la tecla elegida y la guarda en el espacio correspondiente"""
     tecla_elegida[ubicacion] = data
