@@ -55,22 +55,27 @@ def crear_boton(texto, tecla, x, y, estilo=ESTILO_BOTON):
     boton.place(x=x, y=y)
     return boton
 
+#principales
 crear_boton("X", 0, 620, 225)
 crear_boton("O", 1, 675, 185)
 crear_boton("■", 2, 565, 185)
 crear_boton("△", 3, 620, 150)
+#gatillos
 crear_boton("R1", 5, 620, 100)
 crear_boton("R2", 7, 620, 50)
 crear_boton("L1", 4, 120, 100)
 crear_boton("L2", 6, 120, 50)
-
+#select start
 crear_boton("START", 8, 520, 120, estilo=ESTILO_BOTON_PEQUENO)
 crear_boton("SELECT", 9, 210, 120, estilo=ESTILO_BOTON_PEQUENO)
 
+#flechas
 crear_boton("▲", 10, 125, 160, estilo=ESTILO_BOTON_PEQUENO)
 crear_boton("▼", 13, 125, 220, estilo=ESTILO_BOTON_PEQUENO)
 crear_boton("❰", 12, 90, 190, estilo=ESTILO_BOTON_PEQUENO)
 crear_boton("❱", 11, 165, 190, estilo=ESTILO_BOTON_PEQUENO)
+#analogicos
+crear_boton("up",14,250,250, estilo=ESTILO_BOTON_PEQUENO)
 
 def abrir_config():
     ventana_config = ctk.CTkToplevel(app)
