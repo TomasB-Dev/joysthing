@@ -68,15 +68,21 @@ crear_boton("L2", 6, 120, 50)
 #select start
 crear_boton("START", 8, 520, 120, estilo=ESTILO_BOTON_PEQUENO)
 crear_boton("SELECT", 9, 210, 120, estilo=ESTILO_BOTON_PEQUENO)
-
 #flechas
 crear_boton("▲", 10, 125, 160, estilo=ESTILO_BOTON_PEQUENO)
 crear_boton("▼", 13, 125, 220, estilo=ESTILO_BOTON_PEQUENO)
 crear_boton("❰", 12, 90, 190, estilo=ESTILO_BOTON_PEQUENO)
 crear_boton("❱", 11, 165, 190, estilo=ESTILO_BOTON_PEQUENO)
-#analogicos
-crear_boton("up",14,250,250, estilo=ESTILO_BOTON_PEQUENO)
-
+#analogicos izquierdos
+crear_boton("up",14,230,230, estilo=ESTILO_BOTON_PEQUENO)
+crear_boton("left",15,200,260, estilo=ESTILO_BOTON_PEQUENO)
+crear_boton("right",16,270,260, estilo=ESTILO_BOTON_PEQUENO)
+crear_boton("down",17,230,290, estilo=ESTILO_BOTON_PEQUENO)
+#analogicos derechos
+crear_boton("up",14,530,230, estilo=ESTILO_BOTON_PEQUENO)
+crear_boton("left",15,500,260, estilo=ESTILO_BOTON_PEQUENO)
+crear_boton("right",16,570,260, estilo=ESTILO_BOTON_PEQUENO)
+crear_boton("down",17,530,290, estilo=ESTILO_BOTON_PEQUENO)
 def abrir_config():
     ventana_config = ctk.CTkToplevel(app)
     ventana_config.title("Configuracion")
