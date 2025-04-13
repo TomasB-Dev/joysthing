@@ -2,7 +2,7 @@ from pywinusb import hid
 import pyautogui
 import threading
 import json
-last_join = [""] * 2 #funciona en base a los campos 6 es el primero, gatillos 2do
+last_join = [""] * 3 #funciona en base a los campos 6 es el primero, gatillos 2do
 teclas=[ 79 , # X
         47, # CIRCULO
         143, # CUADRADO
@@ -19,6 +19,8 @@ teclas=[ 79 , # X
         6,# left
         4, #down
         #end flechas
+        #analog iz
+        0,#up
         ]
 tecla_elegida = [""] * 20 #momentaneo
 Dispositivo_selected = None
@@ -48,6 +50,8 @@ def handler(datos_raw):
         print("Raw data:", datos_raw) # para ver que pocion tiene
     boton_data = datos_raw[6]
     gatillos_btn = datos_raw[7]
+
+
     #buscar / pensar una manera mas eficiente de hacer esto
     # btn principales xov
     if boton_data == 79 and last_join[0] != 79: # la x
@@ -94,6 +98,13 @@ def handler(datos_raw):
         pyautogui.press(f'{tecla_elegida[7]}')
     elif gatillos_btn != last_join[1]:
         last_join[1] = gatillos_btn
+    #gatillos
+    if datos_raw[3] == 0 and last_join[2] != 0:
+        last_join[2] = 0
+        pyautogui.press(f"{tecla_elegida[14]}")
+        print("funciono")
+    elif datos_raw[3] != last_join[2]:
+        last_join[2] =  datos_raw[3]
 def elegir_tecla(ubicacion,data):
     """selecciona la tecla elegida y la guarda en el espacio correspondiente"""
     tecla_elegida[ubicacion] = data
