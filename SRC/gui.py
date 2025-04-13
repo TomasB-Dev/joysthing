@@ -110,7 +110,7 @@ boton_config.place(x=750, y=10)
 
 def al_cerrar():
     app.destroy()
-    pyautogui.press('enter')
+    pyautogui.press('enter') #para terminar proceso
 
 app.bind("<Key>", tecla_presionada)
 app.protocol("WM_DELETE_WINDOW", al_cerrar)
